@@ -1,0 +1,13 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // This rule allows anyone to view, edit, and delete all data in your Firestore database.
+    // WARNING: This makes your database completely public and accessible to anyone.
+    // Use with caution and ensure that you have proper security measures in place.
+    match /{document=**} {
+      allow read, write: if true;
+    }
+  }
+}
